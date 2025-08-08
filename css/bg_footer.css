@@ -214,7 +214,7 @@
     width: 62px;
 }
 
-.footer-copyright {
+.footer-copyright-lite {
     background-color: #027b9a;
     color: #fff;
     padding: 15px 30px;
@@ -337,3 +337,18 @@
     }
 }
 
+/* 页脚波浪的颜色 */
+[data-theme='dark'] .footer-wave-path {
+    fill: #0f3858;
+}
+[data-theme='dark'] .footer-content-div {
+    background-color: #0f3858;
+}
+
+/* 页脚海底的颜色 */
+[data-theme='dark'] .footer-copyright {
+    background-color: #104e5e;
+}
+[data-theme='dark'] .footer-social-amoeba-path {
+    fill: #104e5e;
+}
