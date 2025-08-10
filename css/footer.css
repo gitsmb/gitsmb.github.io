@@ -1,12 +1,4 @@
-@font-face {
-  font-family: 'MyFont';
-  src: url('../fonts/味觉字体.ttf') format('truetype');
-}
-
-body {
-  font-family: 'MyFont', sans-serif;
-}
-
+/* 页脚样式 */
 #footer-wrap {
     font-family: 'Roboto', sans-serif;
     padding: 0;
