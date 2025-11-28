@@ -566,7 +566,13 @@ UI: 被子横盖显得高🐰
 
   const triggerPjaxFn = (val) => {
     if (!val) return
-    Object.values(val).forEach(fn => fn())
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
   }
 
   document.addEventListener('pjax:send', () => {
@@ -602,4 +608,4 @@ UI: 被子横盖显得高🐰
         : window.location.href = e.request.responseURL
     }
   })
-})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+})()</script><script async data-pjax src="/"></script></div></body></html>
