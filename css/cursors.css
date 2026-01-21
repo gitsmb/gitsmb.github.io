@@ -1,0 +1,10 @@
+/* 鼠标样式 */
+body {
+  cursor: url(https://cdn.jsdelivr.net/gh/gitsmb/images/img/index/default.cur),
+    default;
+}
+a,
+img {
+  cursor: url(https://cdn.jsdelivr.net/gh/gitsmb/images/img/index/pointer.cur),
+    default;
+}

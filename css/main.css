@@ -1,0 +1,9 @@
+/* 主体样式 */
+@font-face {
+  font-family: 'MyFont';
+  src: url('../fonts/味觉字体.ttf') format('truetype');
+}
+
+body {
+  font-family: 'MyFont', sans-serif;
+}

@@ -1,0 +1,611 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>CRMEB 开源商城系统Java版 | 茗囧小栈</title><meta name="author" content="茗囧"><meta name="copyright" content="茗囧"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="CRMEB开源商城系统Java版                                                                        官网 |在线体验 |帮助文档 |技术社区        宽 屏 预 览        如果对您有帮助，您可以点右上角 &quot;Star&quot; ❤️ 支持一下 谢谢！     📖 简介：CRMEB 开源商城系统Jav">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CRMEB 开源商城系统Java版">
+<meta property="og:url" content="http://example.com/2025/08/11/crmeb_java/index.html">
+<meta property="og:site_name" content="茗囧小栈">
+<meta property="og:description" content="CRMEB开源商城系统Java版                                                                        官网 |在线体验 |帮助文档 |技术社区        宽 屏 预 览        如果对您有帮助，您可以点右上角 &quot;Star&quot; ❤️ 支持一下 谢谢！     📖 简介：CRMEB 开源商城系统Jav">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/gitsmb/images/img/posts/crmeb_java.png">
+<meta property="article:published_time" content="2025-08-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-10T16:00:00.000Z">
+<meta property="article:author" content="茗囧">
+<meta property="article:tag" content="开源">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/gitsmb/images/img/posts/crmeb_java.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "CRMEB 开源商城系统Java版",
+  "url": "http://example.com/2025/08/11/crmeb_java/",
+  "image": "https://cdn.jsdelivr.net/gh/gitsmb/images/img/posts/crmeb_java.png",
+  "datePublished": "2025-08-10T16:00:00.000Z",
+  "dateModified": "2025-08-10T16:00:00.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "茗囧",
+      "url": "http://example.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="http://example.com/2025/08/11/crmeb_java/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const hour = new Date().getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (theme === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else theme === 'light' ? activateLightMode() : activateDarkMode()
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'medium_zoom',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'CRMEB 开源商城系统Java版',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/scrollbar.css"><link rel="stylesheet" href="/css/pace.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (true) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web_bg" style="background-image: url(/img/image/main/background_img.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/image/private/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fas fa-folder-open"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/front-end/"><i class="fa-fw fas fa-folder-open"></i><span> 前端</span></a></li><li><a class="site-page child" href="/back-end/"><i class="fa-fw fas fa-folder-open"></i><span> 后端</span></a></li><li><a class="site-page child" href="/essay/"><i class="fa-fw fas fa-book"></i><span> 随笔</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/gitsmb/images/img/index/top_img.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/image/public/logo.png" alt="Logo"><span class="site-name">茗囧小栈</span></a><a class="nav-page-title" href="/"><span class="site-name">CRMEB 开源商城系统Java版</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fas fa-folder-open"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/front-end/"><i class="fa-fw fas fa-folder-open"></i><span> 前端</span></a></li><li><a class="site-page child" href="/back-end/"><i class="fa-fw fas fa-folder-open"></i><span> 后端</span></a></li><li><a class="site-page child" href="/essay/"><i class="fa-fw fas fa-book"></i><span> 随笔</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">CRMEB 开源商城系统Java版</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-10T16:00:00.000Z" title="发表于 2025-08-11 00:00:00">2025-08-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-10T16:00:00.000Z" title="更新于 2025-08-11 00:00:00">2025-08-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%BC%80%E6%BA%90/">开源</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span class="waline-pageview-count" data-path="/2025/08/11/crmeb_java/"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2025/08/11/crmeb_java/#post-comment"><span class="waline-comment-count" data-path="/2025/08/11/crmeb_java/"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div align="center" >
+    <img src="https://cdn.jsdelivr.net/gh/gitsmb/images/img/posts/164354_0aafe3d2_892944.gif" />
+</div>
+<div align="center">
+
+<p>CRMEB开源商城系统Java版</p>
+</div>
+
+<div align="center" >
+   <p>
+
+   </p>
+    <a target="_blank" rel="noopener" href="http://www.crmeb.com">
+        <img src="https://img.shields.io/badge/License-apache2.0-green.svg?style=flat" />
+    </a>
+    <a target="_blank" rel="noopener" href='https://gitee.com/ZhongBangKeJi/crmeb_java/members'>
+        <img src='https://gitee.com/ZhongBangKeJi/crmeb_java/badge/fork.svg?theme=dark' alt='fork'></img>
+    </a>
+   <a target="_blank" rel="noopener" href='https://gitee.com/ZhongBangKeJi/crmeb_java/stargazers'>
+        <img src='https://gitee.com/ZhongBangKeJi/crmeb_java/badge/star.svg?theme=dark' alt='star'></img>
+   </a>
+</div>
+
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><div align="center">
+
+<p><a target="_blank" rel="noopener" href="https://www.crmeb.com/">官网</a> |<br><a target="_blank" rel="noopener" href="https://admin.java.crmeb.net/">在线体验</a> |<br><a target="_blank" rel="noopener" href="https://doc.crmeb.com/java/crmeb_java">帮助文档</a> |<br><a target="_blank" rel="noopener" href="https://www.crmeb.com/ask/">技术社区</a></p>
+</div>
+
+<div align="center" >
+    <a target="_blank" rel="noopener" href="https://gitee.com/ZhongBangKeJi/crmeb_java/blob/master/README.md">宽 屏 预 览</a>
+</div>
+
+<div align="center">
+    如果对您有帮助，您可以点右上角 "Star" ❤️ 支持一下 谢谢！
+</div>
+
+
+<hr>
+<h3 id="📖-简介："><a href="#📖-简介：" class="headerlink" title="📖 简介："></a>📖 简介：</h3><p>CRMEB 开源商城系统Java版，基于Java+Vue+Uni-app开发，在微信公众号、小程序、H5移动端都能使用，代码全开源无加密，独立部署，二开很方便，还支持免费商用，能满足企业新零售、分销推广、拼团、砍价、秒杀等多种经营需求，自用、做二开项目都很合适。</p>
+<p>CRMEB开源商城PHP：<a target="_blank" rel="noopener" href="https://gitee.com/ZhongBangKeJi/CRMEB">https://gitee.com/ZhongBangKeJi/CRMEB</a></p>
+<p>系统代码全开源无加密，独立部署、二开方便，适用于企业新零售、分销、拼团、砍价，秒杀等各种业务需求。</p>
+<hr>
+<h3 id="💡-系统亮点："><a href="#💡-系统亮点：" class="headerlink" title="💡 系统亮点："></a>💡 系统亮点：</h3><blockquote>
+<p>1.SpringBoot 框架开发业界主流。  </br><br>2.【前端】Web PC 管理端 Vue + Element UI。<br><br>3.【前端】移动端使用 Uni-app 框架，前后端分离开发。<br><br>4.标准RESTful 接口、标准数据传输，逻辑层次更明确，更多的提高api复用。<br><br>5.支持Redis队列，降低流量高峰，解除耦合，高可用。<br><br>6.数据导出，方便个性化分析。<br><br>7.数据统计分析,使用ECharts图表统计，实现用户、产品、订单、资金等统计分析。<br><br>8.Spring Security 权限管理，后台多种角色，多重身份权限管理，权限可以控制到按钮级别的操作。<br><br>9.Vue表单生成控件，拖拽配置表单，减少前端重复表单工作量，提高前端开发效率。<br></p>
+</blockquote>
+<hr>
+<h3 id="💻-运行环境及框架："><a href="#💻-运行环境及框架：" class="headerlink" title="💻 运行环境及框架："></a>💻 运行环境及框架：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.	移动端uniapp开发框架 可生成H5 公众号 微信小程序</span><br><span class="line">2.	WEB Pc 管理后台使用Vue + Element UI 开发 兼容主流浏览器 ie11+</span><br><span class="line">3.	后台服务 Java SpringBoot + Mybatis-plus + Mysql + redis</span><br><span class="line">4.	运行环境 linux和windows等都支持,只要有Java环境和对应的数据库 redis</span><br><span class="line">5.	运行条件 Java 1.8 Mysql5.7</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="🔧-Java项目框架-和-WEB-PC-项目运行环境"><a href="#🔧-Java项目框架-和-WEB-PC-项目运行环境" class="headerlink" title="🔧 Java项目框架 和 WEB PC 项目运行环境"></a>🔧 Java项目框架 和 WEB PC 项目运行环境</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. SpringBoot 2.2.6.RELEASE</span><br><span class="line">2. Maven 3.6.1</span><br><span class="line">3. swagger-bootstrap-ui 1.0</span><br><span class="line">4. Mybatis Plus 3.3.1</span><br><span class="line">5. npm 6</span><br><span class="line">6. node 14</span><br><span class="line">7. vue 2.x</span><br><span class="line">8. element ui 2.13</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="🧭-项目代码包介绍"><a href="#🧭-项目代码包介绍" class="headerlink" title="🧭 项目代码包介绍"></a>🧭 项目代码包介绍</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. admin     WEB程序         PC端管理端 VUE + ElementUi</span><br><span class="line">2. app       移动商城         UniApp标准开发(H5 + 微信小程序)</span><br><span class="line">3. crmeb     Api            Java SpringBoot + mybatisPlus</span><br><span class="line">4. 接口文档   Api对应的接口文档也可以部署项目后查看</span><br></pre></td></tr></table></figure>
+
+<p>移动端 uniapp 开发 使用 HbuilderX 开发</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://www.crmeb.com/index/java_merchant"><img src="/crmeb/crmebimage/demoimage/gitee-%E5%B9%BF%E5%91%8A_java%E5%A4%9A%E5%95%86%E6%88%B7.jpg"></a></p>
+<h3 id="🎬-系统演示："><a href="#🎬-系统演示：" class="headerlink" title="🎬 系统演示："></a>🎬 系统演示：</h3><p><img src="/crmeb/crmebimage/demoimage/c1.jpg"><br>移动端：<a target="_blank" rel="noopener" href="https://java.crmeb.net/">https://java.crmeb.net</a><br><br>WEBPC管理端：<a target="_blank" rel="noopener" href="https://admin.java.crmeb.net/">https://admin.java.crmeb.net</a><br><br>账号密码： demo&#x2F;crmeb.com<br></p>
+<p>自己搭建演示账号<br>移动端 18292417675 &#x2F; Crmeb_123456<br>管理端 admin &#x2F; 123456</p>
+<p><a target="_blank" rel="noopener" href="https://doc.crmeb.com/java/crmeb_java/2049">想了解CRMEB开源商城系统Java版整体框架，你可以戳这里快速掌握！</a></p>
+<hr>
+<h3 id="📃-系统资料"><a href="#📃-系统资料" class="headerlink" title="📃 系统资料"></a>📃 系统资料</h3><p>需要系统文档的朋友看过来，安装文档、产品介绍、技术文档…你想要的我都有！<br><a target="_blank" rel="noopener" href="https://doc.crmeb.com/java/crmeb_java">https://doc.crmeb.com/java/crmeb_java</a></p>
+<p>要安装系统，跟着视频更顺畅！CRMEB开源商城系统Java版安装视频，给你奉上！<br>视频教程 B站视频教程 持续更新中 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1bP4y1n76P/?vd_source=40854aeda5bba4b8766afd5a99623b16">点击观看 💻🖥️</a></p>
+<hr>
+<h3 id="💟-UI界面"><a href="#💟-UI界面" class="headerlink" title="💟 UI界面"></a>💟 UI界面</h3><h4 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a>核心功能</h4><p><img src="/crmeb/crmebimage/demoimage/javaop2.jpg"></p>
+<h3 id="📱-移动端预览"><a href="#📱-移动端预览" class="headerlink" title="📱 移动端预览"></a>📱 移动端预览</h3><!-- ![](crmeb/crmebimage/demoimage/03-mobile-01.png)
+![](crmeb/crmebimage/demoimage/04-mobile-02.png)
+![](crmeb/crmebimage/demoimage/05-mobile-03.png) -->
+<p><img src="/crmeb/crmebimage/demoimage/001front.jpg"></p>
+<h3 id="WEB-PC管理端预览"><a href="#WEB-PC管理端预览" class="headerlink" title="WEB PC管理端预览"></a>WEB PC管理端预览</h3><!-- ![](crmeb/crmebimage/demoimage/07-pc-01.png)
+![](crmeb/crmebimage/demoimage/08-pc-02.png)
+![](crmeb/crmebimage/demoimage/09-pc-03.png)
+![](crmeb/crmebimage/demoimage/10-pc-04.png)
+![](crmeb/crmebimage/demoimage/11-pc-05.png)
+![](crmeb/crmebimage/demoimage/12-pc-06.png) -->
+<p><img src="/crmeb/crmebimage/demoimage/001admin.jpg"></p>
+<p><img src="/crmeb/crmebimage/demoimage/13yemiandesiner-min.gif"><br><img src="/crmeb/crmebimage/demoimage/14yijianhuanse-min.gif"><br><img src="/crmeb/crmebimage/demoimage/15webPCadmin-min.gif"></p>
+<hr>
+<h3 id="📲-CRMEB开源技术交流群"><a href="#📲-CRMEB开源技术交流群" class="headerlink" title="📲 CRMEB开源技术交流群"></a>📲 CRMEB开源技术交流群</h3><p>扫码进群可领取开源版接口文档、产品功能清单、高清UI设计图、思维脑图！<br><img src="/crmeb/crmebimage/demoimage/wellcomJavaGroup.jpg"></p>
+<h4 id="📈-技术社区"><a href="#📈-技术社区" class="headerlink" title="📈 技术社区"></a>📈 技术社区</h4><p>找方法、提bug、看官方消息、拿活跃大奖！<br><a target="_blank" rel="noopener" href="https://www.crmeb.com/ask/thread/list/152">https://www.crmeb.com/ask/thread/list/152</a></p>
+<h4 id="📞-技术交流"><a href="#📞-技术交流" class="headerlink" title="📞 技术交流"></a>📞 技术交流</h4><p>跟着官方，不迷路！欢迎扫码加入CRMEB 开源项目群，一手消息及资源，尽在掌握！<br><br>CRMEB JAVA 技术交流QQ群 1群 🈵️<br><br>CRMEB JAVA 技术交流QQ群 2群 🈵️<br><br>CRMEB JAVA 技术交流QQ群 3群 640230510 🈵️ 群已满<br></p>
+<!-- [CRMEB开源商城系统开发QQ频道已开启，点击加入一起交流学习](https://pd.qq.com/s/1v2yb4e0p)<br>
+![](crmeb/crmebimage/crmebimage/demoimage/qqcus.jpg) -->
+<p>使用中遇到bug 或者问题可以在gitee 上提 Issues</p>
+<!-- ---
+
+### 💌 特别鸣谢
+核心开发团队
+
+产品: 木子刀客
+
+技术: ❄指缝de阳光, 怪兽的猫, 乡关何处
+
+团队打杂: 大粽子
+
+UI: 被子横盖显得高🐰
+
+测试: 请叫我绵绵🐏, 夏天
+
+--- -->
+
+<h3 id="🔔-使用须知"><a href="#🔔-使用须知" class="headerlink" title="🔔 使用须知"></a>🔔 使用须知</h3><p>1.允许用于个人学习、毕业设计、教学案例、公益事业、商业使用;<br><br>2.如果商用必须保留版权信息，请自觉遵守;<br><br>3.禁止将本项目的代码和资源进行任何形式的出售，产生的一切任何后果责任由侵权者自负。<br></p>
+<hr>
+<h3 id="🪪-版权信息"><a href="#🪪-版权信息" class="headerlink" title="🪪 版权信息"></a>🪪 版权信息</h3><p>本项目包含的第三方源码和二进制文件之版权信息另行标注。<br><br>版权所有Copyright © 2017-2024 by CRMEB (<a target="_blank" rel="noopener" href="https://www.crmeb.com/">https://www.crmeb.com</a>)<br><br>All rights reserved。<br><br>CRMEB® 商标和著作权所有者为西安众邦网络科技有限公司。<br></p>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">茗囧</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/08/11/crmeb_java/">http://example.com/2025/08/11/crmeb_java/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">茗囧小栈</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BC%80%E6%BA%90/">开源</a></div><div class="post-share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/gitsmb/images/img/posts/crmeb_java.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/08/19/FindWork/" title="终于找到工作了"><img class="cover" src="https://cdn.jsdelivr.net/gh/gitsmb/images/img/posts/yiku.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">终于找到工作了</div></div><div class="info-2"><div class="info-item-1">💡终于找到工作了 来广州快两个月了，终于找到一个程序员的工作了。博主是六月初毕业的，离开学校后就去了父母的出租屋呆着，每天都是在招聘软件刷招聘信息，接到面试就一两个，刷了一个月都没找工作，在这一个月里都承受着来自父母的压力，在七月初，我决定离开父母,自己一个人去广州干着地铁保安或者销售先，在慢慢找程序员的工作，干了10多天的销售，我还是决定辞职了，开始找程序员工作,在招聘软件找也是找不到，慢慢地找了些技术支持的，有些面试，后面发现番禺万达广场有个招聘会，就带着简历过去看看，发现有两个公司招Java开发程序员的，投递后一天后就是周末了，到了周一也没见面试消息，我就加了HR微信，重新发了我的简历，结果HR说，简历通过初筛，让我周三去面试了，我去了后挺多场景题回答得也是差强人意的，感觉这次面试又要凉凉了，等了一天后，在周五HR问我住处，我感觉有希望了，到了下午就收到了offer了。这次运气没有那么差了祝我以后顺顺利利吧！！！  </div></div></div></a><a class="pagination-related" href="/2025/08/08/Template/" title="文章模板"><img class="cover" src="https://cdn.jsdelivr.net/gh/gitsmb/images/img/posts/blog_index.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">文章模板</div></div><div class="info-2"><div class="info-item-1">💡 一、xxx1.xxxxxx 1  2.xxxxxx 1  3.xxxxxx 1  💡 二、xxx1.xxxxxx 1  2.xxxxxx 1  3.xxxxxx 1   💡 三、xxx1.xxxxxx 1  2.xxxxxx 1  3.xxxxxx 1  💡 四、安装主题1.xxxxxx 1  2.xxxxxx 1  3.xxxxxx 1  💡 五、xxx1.xxxxxx 1  2.xxxxxx 1  3.xxxxxx 1  💡 六、xxx1.xxxxxx 1  2.xxxxxx 1  3.xxxxxx 1  💡 七、xxx1.xxxxxx 1  2.xxxxxx 1  3.xxxxxx 1  💡 八、xxx1.xxxxxx 1  2.xxxxxx 1  3.xxxxxx 1  💡 九、xxx1.xxxxxx 1  2.xxxxxx 1  3.xxxxxx 1  📚 总结xxx  xxx xxx  💬 讨论欢迎在评论区讨论:  xxx？ xxx？  </div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/08/04/Ruoyi1/" title="若依"><img class="cover" src="https://cdn.jsdelivr.net/gh/gitsmb/images/img/posts/ruoyi_index.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-04</div><div class="info-item-2">若依</div></div><div class="info-2"><div class="info-item-1"> 	  RuoYi v3.9.0 基于SpringBoot+Vue前后端分离的Java快速开发框架  	 	 	   平台简介若依是一套全部开源的快速开发平台，毫无保留给个人及企业免费使用。  前端采用Vue、Element UI。 后端采用Spring Boot、Spring Security、Redis &amp; Jwt。 权限认证使用Jwt，支持多终端认证系统。 支持加载动态权限菜单，多方式轻松权限控制。 高效率开发，使用代码生成器可以一键生成前后端代码。 提供了技术栈（Vue3 Element Plus Vite）版本RuoYi-Vue3，保持同步更新。 提供了单应用版本RuoYi-Vue-fast，Oracle版本RuoYi-Vue-Oracle，保持同步更新。 不分离版本，请移步RuoYi，微服务版本，请移步RuoYi-Cloud 阿里云折扣场：点我进入，腾讯云秒杀场：点我进入&nbsp;&nbsp;  内置功能 用户管理：用户是系统操作者，该功能主要完成系统用户配置。 部门管理：配置系统组织机构（公司、部门、小组），树结构展现支持数据权限。 岗位管理：配置系统用户...</div></div></div></a><a class="pagination-related" href="/2025/08/05/Ruoyi2/" title="若依"><img class="cover" src="https://cdn.jsdelivr.net/gh/gitsmb/images/img/posts/ruoyi_index.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-05</div><div class="info-item-2">若依</div></div><div class="info-2"><div class="info-item-1"> 	  RuoYi v3.9.0 基于SpringBoot+Vue前后端分离的Java快速开发框架  	 	 	   平台简介若依是一套全部开源的快速开发平台，毫无保留给个人及企业免费使用。  前端采用Vue、Element UI。 后端采用Spring Boot、Spring Security、Redis &amp; Jwt。 权限认证使用Jwt，支持多终端认证系统。 支持加载动态权限菜单，多方式轻松权限控制。 高效率开发，使用代码生成器可以一键生成前后端代码。 提供了技术栈（Vue3 Element Plus Vite）版本RuoYi-Vue3，保持同步更新。 提供了单应用版本RuoYi-Vue-fast，Oracle版本RuoYi-Vue-Oracle，保持同步更新。 不分离版本，请移步RuoYi，微服务版本，请移步RuoYi-Cloud 阿里云折扣场：点我进入，腾讯云秒杀场：点我进入&nbsp;&nbsp;  内置功能 用户管理：用户是系统操作者，该功能主要完成系统用户配置。 部门管理：配置系统组织机构（公司、部门、小组），树结构展现支持数据权限。 岗位管理：配置系统用户...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div class="comment-switch"><span class="first-comment">Waline</span><span id="switch-btn"></span><span class="second-comment">Livere</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div><div><div id="lv-container" data-id="city" data-uid="MTAyMC82MDg0MS8zNzMxMQ=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/image/private/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">茗囧</div><div class="author-info-description">记录美好生活</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/gitsmb"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/gitsmb" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:xkluohouduo@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="/img/image/private/weixin.png" target="_blank" title="Weixin"><i class="fab fa-weixin" style="color: #4faaf2;"></i></a><a class="social-icon" href="/img/image/private/qq.png" target="_blank" title="QQ"><i class="fab fa-qq" style="color: #12b7f5;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><div class="announcement_content">
+  <small><center><br></center></small>
+  <small><center>世界并没有变，变的只有我自己。</center></small>
+  <div class="aplayer no-destroy" data-id="9555242604" data-server="tencent" data-type="playlist" data-fixed="false" data-autoplay="false"></div>
+  <link rel="stylesheet" href="https://tmx.fishpi.cn/cdn/APlayer.min.css">
+  <script src="https://tmx.fishpi.cn/cdn/APlayer.min.js"></script>
+  <script src="https://tmx.fishpi.cn/cdn/Meting.min.js"></script>
+  <small><center>如果你觉得我们聊得来</center></small><small><center>可以请我吃个冰淇淋~</center></small>
+  <small><center>如果有机会</center></small>
+  <small><center>我会请你喝可乐~</center></small>
+  <center><img src="/img/image/private/wx.png" width="240"></center>
+  <small><center><h3>谢谢你请我吃冰淇淋~~<h3/></center></small>
+  <small><h2>联系我:<h2/></small>
+  <center><img src="/img/image/private/weixin.png" width="240"></center>
+  <center><img src="/img/image/private/mpp.png" width="240"></center>
+  <center><img src="/img/image/private/qq.png" width="240"></center>
+  <center><a href="https://www.foreverblog.cn/" target="_blank"> <img src="/img/image/public/forever_logo_en_default.png" alt="" style="width:auto;height:16px;"></a></center>
+  <center><a href="https://www.foreverblog.cn/go.html" target="_blank"> <img src="https://img.foreverblog.cn/wormhole_3.gif" alt="" style="width:auto;height:32px;" title="穿梭虫洞-随机访问十年之约友链博客"></a></center>
+  <center><a href="https://www.travellings.cn/go.html" target="_blank" rel="noopener" title="开往-友链接力"><img src="/img/image/public/travellings.gif" alt="开往-友链接力" width="120"></a></center>
+</div>
+</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%96-%E7%AE%80%E4%BB%8B%EF%BC%9A"><span class="toc-number"></span> <span class="toc-text">📖 简介：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%A1-%E7%B3%BB%E7%BB%9F%E4%BA%AE%E7%82%B9%EF%BC%9A"><span class="toc-number"></span> <span class="toc-text">💡 系统亮点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%BB-%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E5%8F%8A%E6%A1%86%E6%9E%B6%EF%BC%9A"><span class="toc-number"></span> <span class="toc-text">💻 运行环境及框架：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%A7-Java%E9%A1%B9%E7%9B%AE%E6%A1%86%E6%9E%B6-%E5%92%8C-WEB-PC-%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83"><span class="toc-number"></span> <span class="toc-text">🔧 Java项目框架 和 WEB PC 项目运行环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A7%AD-%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%E5%8C%85%E4%BB%8B%E7%BB%8D"><span class="toc-number"></span> <span class="toc-text">🧭 项目代码包介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%AC-%E7%B3%BB%E7%BB%9F%E6%BC%94%E7%A4%BA%EF%BC%9A"><span class="toc-number"></span> <span class="toc-text">🎬 系统演示：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%83-%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%96%99"><span class="toc-number"></span> <span class="toc-text">📃 系统资料</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%9F-UI%E7%95%8C%E9%9D%A2"><span class="toc-number"></span> <span class="toc-text">💟 UI界面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD"><span class="toc-number">1.</span> <span class="toc-text">核心功能</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%B1-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A2%84%E8%A7%88"><span class="toc-number"></span> <span class="toc-text">📱 移动端预览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WEB-PC%E7%AE%A1%E7%90%86%E7%AB%AF%E9%A2%84%E8%A7%88"><span class="toc-number"></span> <span class="toc-text">WEB PC管理端预览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%B2-CRMEB%E5%BC%80%E6%BA%90%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81%E7%BE%A4"><span class="toc-number"></span> <span class="toc-text">📲 CRMEB开源技术交流群</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%93%88-%E6%8A%80%E6%9C%AF%E7%A4%BE%E5%8C%BA"><span class="toc-number">1.</span> <span class="toc-text">📈 技术社区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%F0%9F%93%9E-%E6%8A%80%E6%9C%AF%E4%BA%A4%E6%B5%81"><span class="toc-number">2.</span> <span class="toc-text">📞 技术交流</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%94-%E4%BD%BF%E7%94%A8%E9%A1%BB%E7%9F%A5"><span class="toc-number"></span> <span class="toc-text">🔔 使用须知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%AA%AA-%E7%89%88%E6%9D%83%E4%BF%A1%E6%81%AF"><span class="toc-number"></span> <span class="toc-text">🪪 版权信息</span></a></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/02/AA/" title="无标题">无标题</a><time datetime="2025-12-02T14:50:40.986Z" title="发表于 2025-12-02 22:50:40">2025-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/09/14/Linux_Command_Collection/" title="Linux命令集合"><img src="https://cdn.jsdelivr.net/gh/gitsmb/images/img/posts/blog_index.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux命令集合"/></a><div class="content"><a class="title" href="/2025/09/14/Linux_Command_Collection/" title="Linux命令集合">Linux命令集合</a><time datetime="2025-09-13T16:00:00.000Z" title="发表于 2025-09-14 00:00:00">2025-09-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/09/14/WSL2%20_Centos7_Docker/" title="WSL2 Centos7 Docker服务启动失败"><img src="https://cdn.jsdelivr.net/gh/gitsmb/images/img/posts/blog_index.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WSL2 Centos7 Docker服务启动失败"/></a><div class="content"><a class="title" href="/2025/09/14/WSL2%20_Centos7_Docker/" title="WSL2 Centos7 Docker服务启动失败">WSL2 Centos7 Docker服务启动失败</a><time datetime="2025-09-13T16:00:00.000Z" title="发表于 2025-09-14 00:00:00">2025-09-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/19/FindWork/" title="终于找到工作了"><img src="https://cdn.jsdelivr.net/gh/gitsmb/images/img/posts/yiku.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="终于找到工作了"/></a><div class="content"><a class="title" href="/2025/08/19/FindWork/" title="终于找到工作了">终于找到工作了</a><time datetime="2025-08-19T01:00:00.000Z" title="发表于 2025-08-19 09:00:00">2025-08-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/11/crmeb_java/" title="CRMEB 开源商城系统Java版"><img src="https://cdn.jsdelivr.net/gh/gitsmb/images/img/posts/crmeb_java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CRMEB 开源商城系统Java版"/></a><div class="content"><a class="title" href="/2025/08/11/crmeb_java/" title="CRMEB 开源商城系统Java版">CRMEB 开源商城系统Java版</a><time datetime="2025-08-10T16:00:00.000Z" title="发表于 2025-08-11 00:00:00">2025-08-11</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"></div><div class="footer_custom_text"><div class="footer-svg-div">
+  <svg class="footer-wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100" preserveAspectRatio="none">
+  <path class="footer-wave-path" d="M851.8,100c125,0,288.3-45,348.2-64V0H0v44c3.7-1,7.3-1.9,11-2.9C80.7,22,151.7,10.8,223.5,6.3C276.7,2.9,330,4,383,9.8 c52.2,5.7,103.3,16.2,153.4,32.8C623.9,71.3,726.8,100,851.8,100z"></path>
+  </svg>    
+</div>
+<div class="footer-content-div" >
+<div class="footer-content">
+    <div class="footer-content-column">
+        <div class="footer-logo">
+            <a class="footer-logo-link" href="#">
+                <span class="hidden-link-text">LOGO</span>
+                <img src="/img/image/public/logo.png" style="height:40%; width:40%">
+            </a>
+        </div>
+        <div class="footer-menu">
+            <h2 class="footer-menu-name">开始</h2>
+            <ul id="menu-get-started" class="footer-menu-list">
+                <li class="menu-item menu-item-type-post_type menu-item-object-product">
+                    <a href="/">博客主页</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-content-column">
+        <div class="footer-menu">
+            <h2 class="footer-menu-name">快速链接</h2>
+            <ul id="menu-company" class="footer-menu-list">
+                <li class="menu-item menu-item-type-taxonomy menu-item-object-category">
+                    <a href="/archives/">时间轴</a>&nbsp;|&nbsp;<a href="/tags/">标签</a>
+                </li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-product">
+                    备用域名1&nbsp;<a target="_blank" rel="noopener" href="https://blog.esc.qzz.io/">茗囧小栈</a>
+                </li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-product">
+                    备用域名2&nbsp;<a target="_blank" rel="noopener" href="https://gitsmb.github.io/">茗囧小栈</a>
+                </li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-product">
+                    <a href="https://www.foreverblog.cn/" rel="noopener external nofollow noreferrer" target="_blank" > <img class="img-foreverblog" src="/img/image/public/forever_logo_en_default_white.png" alt="" style="width:auto;height:21px;margin-top:6px"> </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-content-column">
+        <div class="footer-menu">
+            <h2 class="footer-menu-name">法律声明</h2>
+            <ul id="menu-legal" class="footer-menu-list">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-170434">
+                    <a href="/pages/privacy.html">隐私政策</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-call-to-action">
+            <h2 class="footer-call-to-action-title">联系本站</h2>
+            <ul id="menu-legal" class="footer-menu-list">
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-170434">
+                    <a href="/img/image/private/mp.png">微信公众号</a>
+                </li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-170434">
+                    <a class="footer-call-to-action-link" href="mailto:xkluohouduo@gmail.com" target="_self">
+                        <span style="display:none">@</span>xkluohouduo@gmail.com
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-content-column">
+        <ul id="menu-get-started" class="footer-menu-list">
+            <li class="menu-item menu-item-type-post_type menu-item-object-product">
+                <a href="/" ><img class="img-not-ai" src="/img/image/svg/Written-By-Human-Not-By-AI-Badge-white.svg" alt="Written by Human, Not by AI"></a>
+            </li>
+            <li class="menu-item menu-item-type-post_type menu-item-object-product">
+                <a href="/" ><img src="/img/image/svg/by-nc-sa.svg" alt="署名-非商业性使用-相同方式共享 4.0 国际"></a>
+            </li>
+            <li class="menu-item menu-item-type-post_type menu-item-object-product">
+                ©2021-2025 By MJ
+            </li>
+        </ul>
+    </div>
+
+    <div class="footer-social-links"> 
+        <svg class="footer-social-amoeba-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 236 54">
+          <path class="footer-social-amoeba-path" d="M223.06,43.32c-.77-7.2,1.87-28.47-20-32.53C187.78,8,180.41,18,178.32,20.7s-5.63,10.1-4.07,16.7-.13,15.23-4.06,15.91-8.75-2.9-6.89-7S167.41,36,167.15,33a18.93,18.93,0,0,0-2.64-8.53c-3.44-5.5-8-11.19-19.12-11.19a21.64,21.64,0,0,0-18.31,9.18c-2.08,2.7-5.66,9.6-4.07,16.69s.64,14.32-6.11,13.9S108.35,46.5,112,36.54s-1.89-21.24-4-23.94S96.34,0,85.23,0,57.46,8.84,56.49,24.56s6.92,20.79,7,24.59c.07,2.75-6.43,4.16-12.92,2.38s-4-10.75-3.46-12.38c1.85-6.6-2-14-4.08-16.69a21.62,21.62,0,0,0-18.3-9.18C13.62,13.28,9.06,19,5.62,24.47A18.81,18.81,0,0,0,3,33a21.85,21.85,0,0,0,1.58,9.08,16.58,16.58,0,0,1,1.06,5A6.75,6.75,0,0,1,0,54H236C235.47,54,223.83,50.52,223.06,43.32Z"></path>
+        </svg>
+        <a class="footer-social-link github" href="https://github.com/gitsmb" target="_blank">
+            <span class="hidden-link-text">Github</span>
+            <svg class="footer-social-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                <path class="footer-social-icon-path" d="M 16 4 C 9.371094 4 4 9.371094 4 16 C 4 21.300781 7.4375 25.800781 12.207031 27.386719 C 12.808594 27.496094 13.027344 27.128906 13.027344 26.808594 C 13.027344 26.523438 13.015625 25.769531 13.011719 24.769531 C 9.671875 25.492188 8.96875 23.160156 8.96875 23.160156 C 8.421875 21.773438 7.636719 21.402344 7.636719 21.402344 C 6.546875 20.660156 7.71875 20.675781 7.71875 20.675781 C 8.921875 20.761719 9.554688 21.910156 9.554688 21.910156 C 10.625 23.746094 12.363281 23.214844 13.046875 22.910156 C 13.15625 22.132813 13.46875 21.605469 13.808594 21.304688 C 11.144531 21.003906 8.34375 19.972656 8.34375 15.375 C 8.34375 14.0625 8.8125 12.992188 9.578125 12.152344 C 9.457031 11.851563 9.042969 10.628906 9.695313 8.976563 C 9.695313 8.976563 10.703125 8.65625 12.996094 10.207031 C 13.953125 9.941406 14.980469 9.808594 16 9.804688 C 17.019531 9.808594 18.046875 9.941406 19.003906 10.207031 C 21.296875 8.65625 22.300781 8.976563 22.300781 8.976563 C 22.957031 10.628906 22.546875 11.851563 22.421875 12.152344 C 23.191406 12.992188 23.652344 14.0625 23.652344 15.375 C 23.652344 19.984375 20.847656 20.996094 18.175781 21.296875 C 18.605469 21.664063 18.988281 22.398438 18.988281 23.515625 C 18.988281 25.121094 18.976563 26.414063 18.976563 26.808594 C 18.976563 27.128906 19.191406 27.503906 19.800781 27.386719 C 24.566406 25.796875 28 21.300781 28 16 C 28 9.371094 22.628906 4 16 4 Z "></path>
+            </svg>
+        </a>
+        <a class="footer-social-link email" href="mailto:xkluohouduo@gmail.com" target="_blank">
+            <span class="hidden-link-text">Email</span>
+            <svg class="footer-social-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path class="footer-social-icon-path" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>
+            </svg>
+        </a>
+        <a class="footer-social-link fish" href="https://uuanqin.top/404.html" target="_blank">
+            <span class="hidden-link-text">爱发电</span>
+            <svg class="footer-social-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <path class="footer-social-icon-path" d="M180.5 141.5C219.7 108.5 272.6 80 336 80s116.3 28.5 155.5 61.5c39.1 33 66.9 72.4 81 99.8c4.7 9.2 4.7 20.1 0 29.3c-14.1 27.4-41.9 66.8-81 99.8C452.3 403.5 399.4 432 336 432s-116.3-28.5-155.5-61.5c-16.2-13.7-30.5-28.5-42.7-43.1L48.1 379.6c-12.5 7.3-28.4 5.3-38.7-4.9S-3 348.7 4.2 336.1L50 256 4.2 175.9c-7.2-12.6-5-28.4 5.3-38.6s26.1-12.2 38.7-4.9l89.7 52.3c12.2-14.6 26.5-29.4 42.7-43.1zM448 256a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/>
+            </svg>
+        </a>
+        <a class="footer-social-link rss" href="/atom.xml" target="_blank">
+            <span class="hidden-link-text">RSS</span>
+            <svg class="footer-social-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <path class="footer-social-icon-path" d="M0 64C0 46.3 14.3 32 32 32c229.8 0 416 186.2 416 416c0 17.7-14.3 32-32 32s-32-14.3-32-32C384 253.6 226.4 96 32 96C14.3 96 0 81.7 0 64zM0 416a64 64 0 1 1 128 0A64 64 0 1 1 0 416zM32 160c159.1 0 288 128.9 288 288c0 17.7-14.3 32-32 32s-32-14.3-32-32c0-123.7-100.3-224-224-224c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/>
+            </svg>
+        </a>
+    </div>
+</div>
+
+<div class="footer-copyright-lite">
+    <div class="footer-copyright-wrapper">
+        <p class="footer-copyright-text">
+            <a target="_blank" href="https://beian.miit.gov.cn/" rel="noopener external nofollow noreferrer noopener"><img class="icp-icon" src="https://cdn.gallery.uuanqin.top/img/icp.ico"><span>桂ICP备2024048996号-3</span></a>
+        </p>
+    </div>
+</div>
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
+      serverURL: 'https://waline.esc.qzz.io/',
+      pageview: true,
+      dark: 'html[data-theme="dark"]',
+      comment: true,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css')
+        .then(() => import('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
+
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
+
+  if ('Waline' === 'Waline' || !false) {
+    if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+
+  const loadLivere = (el, path) => {
+    window.livereOptions = {
+      refer: path || location.pathname
+    }
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyLivere = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    if (typeof LivereTower === 'object') window.LivereTower.init()
+    else {
+      (function(d, s) {
+          var j, e = d.getElementsByTagName(s)[0];
+          if (typeof LivereTower === 'function') { return; }
+          j = d.createElement(s);
+          j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+          j.async = true;
+          e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    }
+  }
+
+  if (isShuoshuo) {
+    'Waline' === 'Livere'
+      ? window.shuoshuoComment = { loadComment: loadLivere }
+      : window.loadOtherComment = loadLivere
+    return
+  }
+
+  if ('Waline' === 'Livere' || !false) {
+    if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+    else loadLivere()
+  } else {
+    window.loadOtherComment = loadLivere
+  }
+})()</script></div><script src="/js/sakura.js"></script><script src="/js/pace.js"></script><script src="/js/cursor.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:description\"]","link[rel=\"canonical\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      false
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="/"></script></div></body></html>
